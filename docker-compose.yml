@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  php:
+    container_name: php
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
+    container_name: poc-enqueue-zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - bubble
+  kafka-manager:
+      image: hlebalbau/kafka-manager
+      container_name: poc-enqueue-kafka-manager
+      ports:
+        - "9000:9000"
+      environment:
+        APPLICATION_SECRET: letmein
+        ZK_HOSTS:  zookeeper:2181
+      networks:
+        - bubble
+  kafka1:
+      image: wurstmeister/kafka:latest
+      container_name: poc-enqueue-kafka1
+      ports:
+        - "9092:9092"
+        - "1099:1099"
+      environment:
+        KAFKA_CREATE_TOPICS: "my-test-topic:1:1"
+        KAFKA_ADVERTISED_HOST_NAME: 10.11.56.197
+        KAFKA_PORT: 9092
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        KAFKA_BROKER_ID: 1
+        KAFKA_JMX_OPTS: "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=127.0.0.1 -Dcom.sun.management.jmxremote.rmi.port=1099"
+        JMX_PORT: 1099
+    networks:
+      - bubble
+networks:
+  bubble:
+    external: true

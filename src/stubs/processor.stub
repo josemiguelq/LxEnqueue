@@ -1,0 +1,28 @@
+<?php
+
+namespace DummyNamespace;
+
+use Interop\Queue\Processor;
+
+class DummyClass implements Processor
+{
+    /**
+     * Create a new Processor instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Consumer will inject $context
+     */
+    public function process(Message $message, Context $context)
+    {
+       // TODO
+       return Result::ACK;
+    }
+
+}

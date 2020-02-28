@@ -1,0 +1,25 @@
+{
+    "name": "josemiguel/picpay-kafka-queue",
+    "require": {
+        "ext-rdkafka": "*",
+        "enqueue/enqueue": "^0.10.1",
+        "illuminate/support": "^5.8",
+        "enqueue/rdkafka": "^0.10.1"
+    },
+    "authors": [
+        {
+            "name": "josemiguelq",
+            "email": "jose.miguelq95@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PicPay\\Kafka\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}

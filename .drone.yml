@@ -1,0 +1,46 @@
+kind: pipeline
+name: default
+type: docker
+platform:
+  os: linux
+  arch: amd64
+services:
+  - name: mysql
+    image: mysql
+    ports:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: drone
+  - name: kafka1
+    image: wurstmeister/kafka:latest
+    ports:
+      - "9092:9092"
+      - "1099:1099"
+steps:
+  - name: composer-install
+    pull: if-not-exists
+    image: picpay/php:7.4-fpm-base
+    commands:
+      - cd application
+      - composer install --prefer-dist
+    environment:
+      COMPOSER_AUTH:
+        from_secret: COMPOSER_AUTH
+  - name: test-unit
+    pull: if-not-exists
+    image: php:7.2-fpm
+    commands:
+      - pecl install -f rdkafka-3.1.3
+      - cd application
+      - ./vendor/bin/phpunit --configuration phpunit.ci.xml
+    environment:
+      APP_ENV: CI
+  - name: codacy-coverage
+    pull: if-not-exists
+    image: php:7.2-fpm
+    commands:
+      - php application/vendor/bin/codacycoverage clover application/tests/_reports/logs/clover.xml
+    environment:
+      CODACY_PROJECT_TOKEN:
+        from_secret: CODACY_PROJECT_TOKEN
