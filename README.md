@@ -1,6 +1,11 @@
 # Installation
-Make sure you have the Kafka PHP driver and Kafka Client installed. You can find installation instructions at https
-://github.com/edenhill/librdkafka and https://pecl.php.net/package/rdkafka.
+Make sure you have the Kafka PHP driver and Kafka Client installed.
+
+## Requirements
+
+- PHP >= 7.1
+- [Kafka Driver](https://github.com/edenhill/librdkafka)
+- [Kafka PHP Extension](https://github.com/arnaud-lb/php-rdkafka)
 
 
 ```bash
