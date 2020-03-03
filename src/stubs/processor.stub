@@ -4,7 +4,7 @@ namespace DummyNamespace;
 
 use Interop\Queue\Processor;
 
-class DummyClass implements Processor
+class DummyClass extends Command implements Processor
 {
     /**
      * Create a new Processor instance.

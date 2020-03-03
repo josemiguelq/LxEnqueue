@@ -1,6 +1,6 @@
 <?php
 
-namespace PicPay\Kafka;
+namespace LxEnqueue;
 
 use Enqueue\Consumption\Result;
 use Interop\Queue\Context;

@@ -1,9 +1,9 @@
 <?php
 
-namespace PicPay\Kafka\Providers;
+namespace LxEnqueue\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use PicPay\Kafka\Console\GenerateConsumerCommand;
+use LxEnqueue\Console\GenerateConsumerCommand;
 
 class KafkaServiceProvider extends ServiceProvider
 {

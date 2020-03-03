@@ -17,7 +17,7 @@ $ composer require ///
 In case your Laravel version does NOT autoload the packages, add the service provider to `config/app.php`:
 
 ```php
-PicPay\Kafka\Providers\KafkaServiceProvider
+LxEnqueue\Providers\KafkaServiceProvider
 ```
 
 ### Lumen
@@ -25,13 +25,13 @@ PicPay\Kafka\Providers\KafkaServiceProvider
 For usage with [Lumen](http://lumen.laravel.com), add the service provider in `bootstrap/app.php`. In this file, you will also need to enable Eloquent. You must however ensure that your call to `$app->withEloquent();` is **below** where you have registered the `MongodbServiceProvider`:
 
 ```php
-$app->register(PicPay\Kafka\Providers\KafkaServiceProvider);
+$app->register(LxEnqueue\Providers\KafkaServiceProvider);
 ```
 
 The service provider will register a commands . There is no need to register additional facades or objects.
 
 ```php
-php artisan vendor:publish --provider="PicPay\Kafka\Providers\KafkaServiceProvider"
+php artisan vendor:publish --provider="LxEnqueue\Providers\KafkaServiceProvider"
 ```
 
 Configuration

@@ -1,10 +1,11 @@
 {
-    "name": "josemiguel/picpay-kafka-queue",
+    "name": "josemiguel/lxenqueue",
     "require": {
         "ext-rdkafka": "*",
         "enqueue/enqueue": "^0.10.1",
         "illuminate/support": "^5.8",
-        "enqueue/rdkafka": "^0.10.1"
+        "enqueue/rdkafka": "^0.10.1",
+        "flipbox/lumen-generator": "^6.0"
     },
     "authors": [
         {
@@ -14,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "PicPay\\Kafka\\": "src/"
+            "LxEnqueue\\": "src/"
         }
     },
     "autoload-dev": {

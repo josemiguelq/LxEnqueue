@@ -1,7 +1,7 @@
 <?php
 
 
-namespace PicPay\Kafka\Contracts;
+namespace LxEnqueue\Contracts;
 
 
 interface KafkaConsumer

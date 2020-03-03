@@ -1,6 +1,6 @@
 <?php
 
-namespace PicPay\Kafka;
+namespace LxEnqueue;
 
 class Producer
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace PicPay\Kafka\Facades;
+namespace LxEnqueue\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class PicPayKafka
- * @package PicPay\Kafka\Facades
+ * Class LxEnqueueKafka
+ * @package LxEnqueue\Facades
  * @method static produce
  * @method static consume
  */
-class PicPayKafka extends Facade
+class LxEnqueueKafka extends Facade
 {
 
 }
