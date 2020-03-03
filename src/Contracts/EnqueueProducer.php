@@ -1,12 +1,8 @@
 <?php
 
-
 namespace LxEnqueue\Contracts;
 
-
-interface KafkaConsumer
+interface EnqueueProducer
 {
 
 }
-
-

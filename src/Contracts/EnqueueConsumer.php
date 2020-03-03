@@ -2,7 +2,9 @@
 
 namespace LxEnqueue\Contracts;
 
-interface KafkaProducer
+interface EnqueueConsumer
 {
 
 }
+
+
